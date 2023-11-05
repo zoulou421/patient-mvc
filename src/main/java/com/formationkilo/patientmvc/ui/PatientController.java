@@ -37,7 +37,10 @@ public class PatientController {
                                    @RequestParam(name="page", defaultValue = "0") int page,
                                    @RequestParam(name="size", defaultValue = "5") int size){
       Page<Patient> pagePatients = patientRepository.findAll(PageRequest.of(page,size));
-      model.addAttribute("listePatients",pagePatients.getContent());
+      model.addAttribute("pagePatients",pagePatients.getContent());
+     //total number of pages
+      model.addAttribute("pages", new int[pagePatients.getTotalPages()]);
+      model.addAttribute("currentPage", page);
       return "patients";
   }
 

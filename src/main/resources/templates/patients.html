@@ -17,7 +17,7 @@
                  </tr>
                  </thead>
                  <tbody>
-                 <tr th:each="p:${listePatients}">
+                 <tr th:each="p:${pagePatients}">
                      <td th:text="${p.id}">ID</td>
                      <td th:text="${p.nom}">Nom</td>
                      <td th:text="${p.dateNaissance}">Date</td>
@@ -26,6 +26,12 @@
                  </tr>
                  </tbody>
              </table>
+             <ul class="nav nav-pills">
+                 <li th:each="page,status:${pages}">
+                   <a th:class="${status.index==currentPage?'btn btn-info ms-1':'btn btn-outline-info ms-1'}" th:text="${status.index}"
+                   th:href="@{index(page=${status.index})}">page</a>
+                 </li>
+             </ul>
          </div>
      </div>
   </div>

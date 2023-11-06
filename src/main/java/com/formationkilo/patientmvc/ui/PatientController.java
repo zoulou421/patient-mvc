@@ -83,7 +83,7 @@ public class PatientController {
             return"formPatients";
         }
         patientRepository.save(patient);
-        return"formPatients";
+        return"redirect:/formPatients";
     }
 
 

@@ -11,10 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -71,22 +68,56 @@ public class PatientController {
         return "formPatients";
     }
     @PostMapping(path = "/saveWitoutValidation")
-    public String savesaveWitoutValidation(Model model, Patient patient){
+    public String saveWitoutValidation(Model model, Patient patient){
         patientRepository.save(patient);
         return"formPatients";
     }
 
-    //save plus validation
-    @PostMapping(path = "/save")
-    public String save(Model model, @Valid Patient patient, BindingResult bindingResult){
+    //V1:save plus validation
+    @PostMapping(path = "/saveV1")
+    public String saveV1(Model model, @Valid Patient patient, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return"formPatients";
         }
         patientRepository.save(patient);
-        return"redirect:/formPatients";
+        return"redirect:/index";
     }
 
 
+    //V2:save plus validation
+    @PostMapping(path = "/save")
+    public String save(Model model, @Valid Patient patient,
+                       BindingResult bindingResult,
+                       @RequestParam(defaultValue = "0")int page,
+                       @RequestParam(defaultValue = "")String keyword
+    ){
+        if(bindingResult.hasErrors()){
+            return"formPatients";
+        }
+        patientRepository.save(patient);
+        return "redirect:/index?page="+page+"&keyword="+keyword;
+    }
+
+    // V1:not stay at the same page after modifying/or update
+    @GetMapping(path = "/editPatient2")
+    public String editPatient2(Model model, Long id){
+        Patient patient=patientRepository.findById(id).orElse(null);
+        if(patient==null) throw new RuntimeException("Patient introuvable");
+        model.addAttribute("patient",patient);
+        return "editPatient";
+    }
+
+    // V2:Allow you to stay at the same page after modifying/or update
+    @GetMapping(path = "/editPatient")
+    public String editPatient(Model model,
+                               Long id, int page, String keyword ){
+        Patient patient=patientRepository.findById(id).orElse(null);
+        if(patient==null) throw new RuntimeException("Patient introuvable");
+        model.addAttribute("patient",patient);
+        model.addAttribute("page",page);
+        model.addAttribute("keyword",keyword);
+        return "redirect:/editPatient";
+    }
 
 
 

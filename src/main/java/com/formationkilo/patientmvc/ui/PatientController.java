@@ -3,12 +3,14 @@ package com.formationkilo.patientmvc.ui;
 
 import com.formationkilo.patientmvc.dao.PatientRepository;
 import com.formationkilo.patientmvc.dto.Patient;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,8 +70,18 @@ public class PatientController {
         model.addAttribute("patient", new Patient());
         return "formPatients";
     }
+    @PostMapping(path = "/saveWitoutValidation")
+    public String savesaveWitoutValidation(Model model, Patient patient){
+        patientRepository.save(patient);
+        return"formPatients";
+    }
+
+    //save plus validation
     @PostMapping(path = "/save")
-    public String save(Model model, Patient patient){
+    public String save(Model model, @Valid Patient patient, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return"formPatients";
+        }
         patientRepository.save(patient);
         return"formPatients";
     }

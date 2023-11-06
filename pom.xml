@@ -37,10 +37,6 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Add mysql connector dependency -->
-
-        <!-- MySQL dependency -->
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -68,6 +64,14 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
+        </dependency>
+
+        <!-- A dialect for Thymeleaf that
+         allows you to use layout/decorator
+         templates to style your content.-->
+        <dependency>
+            <groupId>nz.net.ultraq.thymeleaf</groupId>
+            <artifactId>thymeleaf-layout-dialect</artifactId>
         </dependency>
 
     </dependencies>

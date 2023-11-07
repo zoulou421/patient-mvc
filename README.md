@@ -1,8 +1,7 @@
 <h3>Display a list of patients</h3>
-<div>
+
 ![1.JPG](src%2Fmain%2Fresources%2Fstatic%2Fimages%2F1.JPG)
   <img src="![1.JPG](src%2Fmain%2Fresources%2Fstatic%2Fimages%2F1.JPG)" />
-</div>
 <br />
 <h3>Add patient into form</h3>
 <div>

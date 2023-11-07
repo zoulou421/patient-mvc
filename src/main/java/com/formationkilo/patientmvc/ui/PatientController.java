@@ -99,18 +99,22 @@ public class PatientController {
     }
 
     // V1:not stay at the same page after modifying/or update
-    @GetMapping(path = "/editPatient2")
-    public String editPatient2(Model model, Long id){
+    @GetMapping(path = "/editPatient")
+    public String editPatient(Model model, Long id, Integer page, String keyword ){
         Patient patient=patientRepository.findById(id).orElse(null);
         if(patient==null) throw new RuntimeException("Patient introuvable");
         model.addAttribute("patient",patient);
+        model.addAttribute("page",page);
+        model.addAttribute("keyword",keyword);
         return "editPatient";
     }
 
     // V2:Allow you to stay at the same page after modifying/or update
-    @GetMapping(path = "/editPatient")
-    public String editPatient(Model model,
-                               Long id, int page, String keyword ){
+    @GetMapping(path = "/editPatient3")
+    public String editPatient3(Model model,
+                              Long id,
+                              int page,
+                              String keyword ){
         Patient patient=patientRepository.findById(id).orElse(null);
         if(patient==null) throw new RuntimeException("Patient introuvable");
         model.addAttribute("patient",patient);

@@ -25,17 +25,17 @@ public class PatientController {
     public String patients(){
 
         //return "patients";
-        return "redirect:/index";
+        return "redirect:/user/index";
     }
 
-  @GetMapping(path = "/home")
+  @GetMapping(path = "/user/home")
   public String listPatients(Model model){
       List<Patient>listePatients = patientRepository.findAll();
       model.addAttribute("listePatients",listePatients);
     return "patients";
   }
   //the same method with pagination
-  @GetMapping(path = "/index")
+  @GetMapping(path = "/user/index")
   public String paginationPatients(Model model,
                                    @RequestParam(name="page", defaultValue = "0") int page,
                                    @RequestParam(name="size", defaultValue = "5") int size,
@@ -50,19 +50,19 @@ public class PatientController {
       return "patients";
   }
 
-    @GetMapping(path = "/delete")
+    @GetMapping(path = "/admin/delete")
   public String delete(Long id, int page, String keyword){
         patientRepository.deleteById(id);
-        return "redirect:/index?page="+page+"&keyword="+keyword;
+        return "redirect:/user/index?page="+page+"&keyword="+keyword;
   }
 
-    @GetMapping(path = "/patients")
+    @GetMapping(path = "/user/patients")
     @ResponseBody
     public  List<Patient> listPatients(){
         return patientRepository.findAll();
   }
 
-    @GetMapping(path = "/formPatients")
+    @GetMapping(path = "/admin/formPatients")
     public String formPatients(Model model){
         model.addAttribute("patient", new Patient());
         return "formPatients";
@@ -74,18 +74,18 @@ public class PatientController {
     }
 
     //V1:save plus validation
-    @PostMapping(path = "/saveV1")
+    @PostMapping(path = "/admin/saveV1")
     public String saveV1(Model model, @Valid Patient patient, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return"formPatients";
         }
         patientRepository.save(patient);
-        return"redirect:/index";
+        return"redirect:/user/index";
     }
 
 
     //V2:save plus validation
-    @PostMapping(path = "/save")
+    @PostMapping(path = "/admin/save")
     public String save(Model model, @Valid Patient patient,
                        BindingResult bindingResult,
                        @RequestParam(defaultValue = "0")int page,
@@ -95,11 +95,11 @@ public class PatientController {
             return"formPatients";
         }
         patientRepository.save(patient);
-        return "redirect:/index?page="+page+"&keyword="+keyword;
+        return "redirect:/user/index?page="+page+"&keyword="+keyword;
     }
 
     // V1:not stay at the same page after modifying/or update
-    @GetMapping(path = "/editPatient")
+    @GetMapping(path = "/admin/editPatient")
     public String editPatient(Model model, Long id, Integer page, String keyword ){
         Patient patient=patientRepository.findById(id).orElse(null);
         if(patient==null) throw new RuntimeException("Patient introuvable");

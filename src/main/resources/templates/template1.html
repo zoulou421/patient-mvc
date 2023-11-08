@@ -42,7 +42,12 @@
                     [Username]
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#"> Logout</a></li>
+                    <li><a class="dropdown-item" th:href="@{/logout}">Logout with post</a></li>
+                    <li>
+                        <form method="post" th:action="@{/logout}">
+                            <button  type="submit" class="dropdown-item" >Logout with form</button>
+                        </form>
+                    </li>
                 </ul>
             </li>
         </ul>

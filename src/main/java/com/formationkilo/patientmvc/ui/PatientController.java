@@ -58,7 +58,7 @@ public class PatientController {
 
     @GetMapping(path = "/patients")
     @ResponseBody
-  public  List<Patient> listPatients(){
+    public  List<Patient> listPatients(){
         return patientRepository.findAll();
   }
 

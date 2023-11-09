@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Logged Out successfully!</title>
+  <link rel="stylesheet" type="text/css" href="webjars/bootstrap/5.3.2/css/bootstrap.min.css">
+  <script src="webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </head>
+
+
 <body>
-$END$
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-md-offset-3">
+
+      <hr /><br /><br />
+      <h1 style="color:green; font-weight: bold;">
+        Vous êtes à présent déconnecté(e) avec succès!
+      </h1>
+      <hr /><br />
+      <h2 class="btn btn-primary btn-lg">
+        <a  th:href="@{/login}" style="color:azure;">Vous reconnectez ?</a>
+      </h2>
+
+    </div>
+
+  </div>
+</div>
 </body>
 </html>

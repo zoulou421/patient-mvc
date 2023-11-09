@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -20,6 +21,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity(prePostEnabled = true)
 //@RequiredArgsConstructor
 public class SecurityConfig  {
 
@@ -48,16 +50,30 @@ public class SecurityConfig  {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 
-        //If this endpoint is a Spring MVC endpoint, please use requestMatchers(MvcRequestMatcher);
-        //
+        //If this endpoint is a Spring MVC endpoint,
+        // please use requestMatchers(MvcRequestMatcher);
          httpSecurity
 
-                 .authorizeHttpRequests((requests) -> requests
+                 .authorizeHttpRequests((authorizeRequests) -> authorizeRequests
+                         .requestMatchers(AntPathRequestMatcher.antMatcher("/webjars/**")).permitAll()
+                         .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
                          .requestMatchers(AntPathRequestMatcher.antMatcher("/user/**")).hasRole("USER")
                          .requestMatchers(AntPathRequestMatcher.antMatcher("/admin/**")).hasRole("ADMIN")
                          .anyRequest().authenticated()
                  )
-                 .formLogin(withDefaults());//default form spring used
+              //   .formLogin(withDefaults());//default form spring used
+                 .formLogin(form -> form
+                         .loginPage("/login")
+                         .permitAll()
+                 );
+        httpSecurity.rememberMe(withDefaults());
+
+        httpSecurity.logout((logout) ->
+                logout.deleteCookies("remove")
+                        .invalidateHttpSession(false)
+                        .logoutUrl("/custom-logout").permitAll()
+                        .logoutSuccessUrl("/logout-success").permitAll()
+        );
 
         httpSecurity
                 // sample exception handling customization

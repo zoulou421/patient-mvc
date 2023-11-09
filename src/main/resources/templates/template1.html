@@ -16,11 +16,11 @@
             <li class="nav-item">
                 <a class="nav-link active" th:href="@{/user/index}">Demo Application</a>
             </li>
-            <li class="nav-item" th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+            <!--li class="nav-item" th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
                 <a class="nav-link" th:href="@{/admin/formPatients}">Ajouter un patient</a>
-            </li>
+            </li-->
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/user/index}">Effectuer une recherche</a>
+                <a class="nav-link" th:href="@{/custom-logout}">Deconnexion</a>
             </li>
 
             <li class="nav-item dropdown">
@@ -59,8 +59,11 @@
     </div>
 </nav>
 
+<hr />
+
 <section layout:fragment="content1">
 
 </section>
+
 </body>
 </html>

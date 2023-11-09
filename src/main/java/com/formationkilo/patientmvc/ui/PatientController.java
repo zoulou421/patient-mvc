@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -51,6 +52,7 @@ public class PatientController {
   }
 
     @GetMapping(path = "/admin/delete")
+    @PreAuthorize("ROLE_ADMIN")
   public String delete(Long id, int page, String keyword){
         patientRepository.deleteById(id);
         return "redirect:/user/index?page="+page+"&keyword="+keyword;
@@ -63,6 +65,7 @@ public class PatientController {
   }
 
     @GetMapping(path = "/admin/formPatients")
+    @PreAuthorize("ROLE_ADMIN")
     public String formPatients(Model model){
         model.addAttribute("patient", new Patient());
         return "formPatients";
@@ -86,6 +89,7 @@ public class PatientController {
 
     //V2:save plus validation
     @PostMapping(path = "/admin/save")
+    @PreAuthorize("ROLE_ADMIN")
     public String save(Model model, @Valid Patient patient,
                        BindingResult bindingResult,
                        @RequestParam(defaultValue = "0")int page,
@@ -100,6 +104,7 @@ public class PatientController {
 
     // V1:not stay at the same page after modifying/or update
     @GetMapping(path = "/admin/editPatient")
+    @PreAuthorize("ROLE_ADMIN")
     public String editPatient(Model model, Long id, Integer page, String keyword ){
         Patient patient=patientRepository.findById(id).orElse(null);
         if(patient==null) throw new RuntimeException("Patient introuvable");

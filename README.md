@@ -1,5 +1,11 @@
 
-<h1 style="color: red;">In Memory Authentication and Authorization using Spring security 6 and Spring boot through a demonstration of a crud with thymeleaf template engine</h1>
+<h1 style="color: red;">In Memory Authentication and Authorization using Spring security 6 and Spring boot 3 through a demonstration of a crud with thymeleaf template engine</h1>
+<ul>
+   <li>MAVEN 3.8</li>
+   <li>IDE: Intellij</li>
+   <li>Template Engine: thymeleaf</li>
+   <li>More dependencies the pom.xml</li>
+</ul>
 <p>COPY THIS CODE TRY IT AND SHARE IT FOR FREE</p>
 <h3>Wrong credentials</h3>
 

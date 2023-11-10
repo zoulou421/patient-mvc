@@ -7,31 +7,8 @@
 
 <br />
 
-
-<h3></h3>
-
 ![![connexion.JPG](src%2Fmain%2Fresources%2Fstatic%2Fimages%2Fconnexion.JPG)1.JPG](src%2Fmain%2Fresources%2Fstatic%2Fimages%2F1.JPG)
 
-<br />
-
-<h3>Disconnected user</h3>
-
-![disconnected.JPG](src%2Fmain%2Fresources%2Fstatic%2Fimages%2Fdisconnected.JPG)
-
-<br />
-
-<h3>Contextualisation as a  user</h3>
-![UserInterface.JPG](src%2Fmain%2Fresources%2Fstatic%2Fimages%2FUserInterface.JPG)
-
-<br />
-
-<h3>Contextualisation as a  user</h3>
-![UserInterface.JPG](src%2Fmain%2Fresources%2Fstatic%2Fimages%2FUserInterface.JPG)
-
-<br />
-
-<h3>Access denied if you are an admin</h3>
-![accessdenied.JPG](src%2Fmain%2Fresources%2Fstatic%2Fimages%2Faccessdenied.JPG)
 <br />
 
 <h3>Contextualisation as  an admin</h3>
@@ -69,3 +46,5 @@
 <h3>Source code with intellij</h3>
 
 ![6.JPG](src%2Fmain%2Fresources%2Fstatic%2Fimages%2F6.JPG)
+
+@Author: Bonevy BEBY, Software Engineer

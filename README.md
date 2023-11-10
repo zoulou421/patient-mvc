@@ -1,5 +1,6 @@
 
-<h1>In Memory Authentication and Authorization using SPRING SECURITY 6</h1>
+<h1 style="color: red;">In Memory Authentication and Authorization using Spring security 6 and Spring boot through a demonstration of a crud with thymeleaf template engine</h1>
+<p>COPY THIS CODE TRY IT AND SHARE IT FOR FREE</p>
 <h3>Wrong credentials</h3>
 
 ![connexionError.JPG](src%2Fmain%2Fresources%2Fstatic%2Fimages%2FconnexionError.JPG)

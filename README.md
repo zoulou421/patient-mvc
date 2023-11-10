@@ -6,8 +6,7 @@
 <ul>
    <li>Spring boot 3</li>
    <li>Spring security 6</li>
-   <li>thymeleaf template engine</li>
-   <li>JDK:17</li>
+   <li>Thymeleaf template engine</li>
    <li>JDK:17</li>
    <li>MAVEN 3.8</li>
    <li>IDE: Intellij</li>
@@ -36,7 +35,6 @@
 ![1.JPG](src%2Fmain%2Fresources%2Fstatic%2Fimages%2F1.JPG)
 
 <br />
-
 
 <h3>Add patient into form</h3>
 

@@ -1,5 +1,5 @@
 
-<h1>Get to know how to create InMemory Authentication and Authorization Java app // Springboot 3 // Spring Security 6</h1>
+<h1>Get to know how to create InMemoryAuthentication and Authorization Java app // Springboot 3 // Spring Security 6</h1>
 <p>💯%FREE: COPY THIS CODE TRY IT AND SHARE IT</p>
 <div>
    <h3>Technologies involved:</h3>

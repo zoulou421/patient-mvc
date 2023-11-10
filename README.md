@@ -1,5 +1,5 @@
 
-<h1>In Memory Authentication and Authorization App+Spring security 6+Spring boot 3 -through a demonstration of a crud+ thymeleaf as a template engine</h1>
+<h1>In Memory Authentication and Authorization App+Spring security 6+Spring boot 3+ thymeleaf template engine</h1>
 <p>💯%FREE: COPY THIS CODE TRY IT AND SHARE IT</p>
 <div>
    <h3>Technologies involved:</h3>

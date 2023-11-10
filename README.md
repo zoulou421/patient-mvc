@@ -1,5 +1,5 @@
 
-<h1>Get to create InMemory Authentication and Authorization Java app</h1>
+<h1>Get to know how to create InMemory Authentication and Authorization Java app</h1>
 <p>💯%FREE: COPY THIS CODE TRY IT AND SHARE IT</p>
 <div>
    <h3>Technologies involved:</h3>

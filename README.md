@@ -1,11 +1,12 @@
 
-<h1>In Memory Authentication and Authorization App+Spring security 6+Spring boot 3+ thymeleaf template engine</h1>
+<h1>InMemory Authentication and Authorization app with Java  Spring boot</h1>
 <p>💯%FREE: COPY THIS CODE TRY IT AND SHARE IT</p>
 <div>
    <h3>Technologies involved:</h3>
 <ul>
    <li>Spring boot 3</li>
    <li>Spring security 6</li>
+   <li>thymeleaf template engine</li>
    <li>JDK:17</li>
    <li>JDK:17</li>
    <li>MAVEN 3.8</li>
